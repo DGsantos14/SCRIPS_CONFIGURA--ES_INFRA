@@ -13,7 +13,7 @@ rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.e
 yum clean all
 
 # Instalando repositorio mysql
-rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rp
+rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 
 # Instalando mysql 8
 yum install -y mysql-community-server
@@ -34,8 +34,8 @@ create database zabbix character set utf8 collate utf8_bin;
 
 create database zabbix character set utf8 collate utf8_bin;
 
-create user zabbix_web@localhost identified by 'zabbix';
-create user zabbix_srv@localhost identified by 'zabbix';
+create user zabbix_web@localhost identified with mysql_native_password by '@Zabbix5';
+create user zabbix_srv@localhost identified with mysql_native_password by '@Zabbix5';
 
 grant all privileges on zabbix.* to zabbix_srv@localhost;
 grant select, update, delete, insert on zabbix.* to 'zabbix_web'@'localhost';
@@ -52,3 +52,4 @@ zcat /usr/share/doc/zabbix-server-mysql/create.sql.gz | mysql -uzabbix_srv -pzab
 
 # Editar o arquivo zabbix_server.conf
 vi /etc/zabbix/zabbix_server.conf
+
