@@ -154,4 +154,7 @@ systemctl status zabbix-server  rh-nginx116-nginx rh-php72-php-fpm
  firewall-cmd --reload
 
 
+ Acesse via IP host hospederiro
+
+
 
