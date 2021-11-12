@@ -12,6 +12,7 @@ setenforce 0
 
 # Instalando repositorio Zabbix:
 rpm -Uvh https://repo.zabbix.com/zabbix/5.0/rhel/7/x86_64/zabbix-release-5.0-1.el7.noarch.rpm
+
 yum clean all
 
 # Instalando repositorio mysql:
@@ -22,10 +23,12 @@ yum install -y mysql-community-server
 
 # Ativando o mysql:
 systemctl enable --now mysqld
+
 systemctl status mysqld
 
 # Buscando a senha do MySql:
  cat /var/log/mysqld.log
+
  grep 'generated for' /var/log/mysqld.log
 
 # Criando o banco de dados para o zabbix:
@@ -58,6 +61,7 @@ vim /etc/zabbix/zabbix_server.conf
 
 # Editar os parametros:
 DBUser=zabbix_srv
+
 DBPassword=zabbix (OU A SENHA SUPER SEGURA DE VOCÊS)
 
 # Iniciar o zabbix server:
@@ -129,11 +133,14 @@ vim /etc/opt/rh/rh-php72/php-fpm.d/zabbix.conf
 
 # modificar a linha de timezone:
 listen.acl_users = apache,nginx
+
 php_value[date.timezone] = America/Sao_Paulo
 
 # iniciar o nginx o php fpm:
 systemctl start zabbix-server  rh-nginx116-nginx rh-php72-php-fpm 
+
 systemctl enable zabbix-server  rh-nginx116-nginx rh-php72-php-fpm
+
 systemctl status zabbix-server  rh-nginx116-nginx rh-php72-php-fpm
 
 # Liberando Firewall 
