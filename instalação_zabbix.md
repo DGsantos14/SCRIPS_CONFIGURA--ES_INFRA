@@ -1,4 +1,4 @@
-# AUTOR: DGSANTOSFKZ
+# AUTOR: -DGSANTOSFKZ-
 # Instalação do Zabbix_5 no Cent-OS 7
 # Configurações iniciais: 
 yum install -y net-tools vim nano epel-release wget curl tcpdump traceroute telnet dnf python3 htop
