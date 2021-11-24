@@ -157,4 +157,3 @@ systemctl status zabbix-server  rh-nginx116-nginx rh-php72-php-fpm
  Acesse via IP host hospederiro
 
 
-
