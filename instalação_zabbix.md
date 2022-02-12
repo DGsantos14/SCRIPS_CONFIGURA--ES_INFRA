@@ -32,6 +32,8 @@ systemctl status mysqld
 
  grep 'generated for' /var/log/mysqld.log
 
+sudo mysql_secure_installation
+
 # Criando o banco de dados para o zabbix:
 
 mysql -u root -p
