@@ -20,7 +20,8 @@ rpm -Uvh https://dev.mysql.com/get/mysql80-community-release-el7-3.noarch.rpm
 
 # Instalando mysql 8:
 yum install -y mysql-community-server
-
+yum update -y 
+rpm --import https://repo.mysql.com/RPM-GPG-KEY-mysql-2022
 # Ativando o mysql:
 systemctl enable --now mysqld
 
